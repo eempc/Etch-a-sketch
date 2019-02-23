@@ -3,13 +3,11 @@ body {
 }
 
 #container {
-    display: grid;    
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, 1fr);
+    display: grid;  
     max-width: 1200px;
+    margin: auto;
 }
 
-#container > * {
-    text-align: center;
-    border: 1px solid red;
+.grid-cell {
+    
 }
