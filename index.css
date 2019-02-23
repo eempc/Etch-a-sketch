@@ -9,10 +9,19 @@
 
 .grid-cell {
     transition: 5s;
+    margin: 2px;
+    width: auto;
+    height: auto;
+    text-align: center;
 }
 
 .grid-cell:hover {
     background-color: red;
-    font-size: 2em;;
-    
+}
+
+#container {
+    width: 1200px;
+    height: 1200px;
+    margin: auto;
+
 }
