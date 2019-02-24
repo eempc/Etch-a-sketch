@@ -9,7 +9,7 @@ body {
 }
 
 .grid-cell {
-    background-color: hsl(180, 32%, 41%);
+    background-color: rgb(71, 138, 138);
 }
 
 .controls {

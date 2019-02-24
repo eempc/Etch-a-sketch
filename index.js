@@ -40,18 +40,18 @@ function addChangeColourEvent() {
         cell.addEventListener('mouseover', function(e) {
             // Check which radio button is checked to determine which colour
             if (document.getElementById("red-radio").checked)
-                e.target.style.backgroundColor = "hsl(0,100%,50%)";
+                e.target.style.backgroundColor = "rgb(100%,0%,0%)";
             else if (document.getElementById("random-radio").checked)
                 e.target.style.backgroundColor = randomColour();
-            else if (document.getElementById("darken-radio")) {
+            else if (document.getElementById("darken-radio").checked) {
                           
             }
         });
 
-        // cell.addEventListener('click', function(e) {
-        //     let currentRGB = e.target.style.backgroundColor;      
-        //     console.log(currentRGB);
-        // });
+        cell.addEventListener('click', function(e) {
+            let currentColour = e.target.style.backgroundColor;      
+            console.log(currentColour);
+        });
 
         // cell.addEventListener('mouseout', function(e) {
         //     e.target.style.backgroundColor = "aqua";
@@ -80,7 +80,9 @@ function newGrid() {
 
 function resetColours() {
     var cells = document.querySelectorAll(".grid-cell");
-    cells.forEach()
+    cells.forEach((cell) => {
+        cell.style.backgroundColor = "white";
+    });
 }
 
 function randomInt(lower, upper) {
@@ -89,8 +91,7 @@ function randomInt(lower, upper) {
 }
 
 function randomColour() {
-    return "hsl(" + randomInt(0,360) + "," + randomInt(0,100) + "%," + randomInt(0,100) + "%)";
-    //Will return a string e.g. "rgb(10,222,33)"
+    return "rgb(" + randomInt(0,100) + "%," + randomInt(0,100) + "%," + randomInt(0,100) + "%)";
 }
 
 function regexExtraction(str, start, end) {
