@@ -1,6 +1,9 @@
 const container = document.querySelector("#container");
 
 function makeSquareGrid(x) {
+    // Clear the current grid first
+    deleteGrid();
+
     // Set up the grid-template via JS instead of the CSS, requires display: grid
     container.style.gridTemplateColumns = "repeat(" + x + ", 1fr)"; // e.g. repeat(8, 1fr)
     container.style.gridTemplateRows = "repeat(" + x + ", 1fr)";
@@ -13,9 +16,9 @@ function makeSquareGrid(x) {
      let containerWidth = container.offsetWidth;
 
     for (var i = 0; i < x*x; i++) {
-        // Essentials for creating the cells
+        // Create cell
         var newDiv = document.createElement("div");
-        newDiv.classList.add(".grid-cell");
+        newDiv.classList.add("grid-cell");
         newDiv.appendChild(document.createTextNode(i));
                
         // Aesthetic style section, nothing important here
@@ -27,7 +30,54 @@ function makeSquareGrid(x) {
 
         // Add to the container
         container.appendChild(newDiv);
+        
     }
 }
 
-makeSquareGrid(8);
+function addChangeColourEvent() {
+    var cells = document.querySelectorAll(".grid-cell");
+    cells.forEach((cell) => {
+        cell.addEventListener('mouseover', function(e) {
+            if (document.getElementById("red-radio").checked)
+                e.target.style.backgroundColor = "red";
+            
+        });
+        // cell.addEventListener('mouseout', function(e) {
+        //     e.target.style.backgroundColor = "aqua";
+        // });
+    });
+
+}
+
+makeSquareGrid(12);
+addChangeColourEvent();
+
+function deleteGrid() {    
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+}
+
+function newGrid() {
+    var size = prompt("Choose an integer");
+    if (Number.isInteger(parseInt(size)) && size > 0 && size <= 64) {
+        makeSquareGrid(size);
+    }
+    else {
+        alert("Please enter an integer between 1 and 64");
+    }
+}
+
+function resetColours() {
+
+}
+
+function randomInt(lower, upper) {
+    return Math.floor(Math.random() * (upper - lower + 1)) + lower;
+}
+
+function testFunction() {
+    var redButton = document.getElementById("red-radio").checked;
+    var randomButton = document.getElementById("random-radio").checked;
+    console.log(redButton + " " + randomButton);
+}

@@ -9,6 +9,19 @@
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
+        <div class="controls">
+            <button onclick="newGrid()">New grid</button>
+            <button onclick="resetColours()">Reset grid</button>
+            <button onclick="testFunction()">Test button</button>
+        </div>
+        <div class="controls">
+            <span>Colour choice</span><br>
+            <input type="radio" id="red-radio" name="colour-radios" value="yes">
+            <label for="red-radio">Red</label>
+            <input type="radio" id="random-radio" name="colour-radios" value="yes">
+            <label for="random-radio">Random</label>
+        </div>
+        
         <div id="container">
         </div>       
         <script src="index.js" async defer></script>

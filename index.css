@@ -9,5 +9,14 @@ body {
 }
 
 .grid-cell {
-    
+    background-color: aqua;
+}
+
+.controls {
+    margin: auto;
+    text-align: center;
+}
+
+button {
+
 }
