@@ -9,14 +9,10 @@ body {
 }
 
 .grid-cell {
-    background-color: aqua;
+    background-color: hsl(180, 32%, 41%);
 }
 
 .controls {
     margin: auto;
     text-align: center;
-}
-
-button {
-
 }

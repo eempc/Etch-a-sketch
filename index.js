@@ -38,15 +38,25 @@ function addChangeColourEvent() {
     var cells = document.querySelectorAll(".grid-cell");
     cells.forEach((cell) => {
         cell.addEventListener('mouseover', function(e) {
+            // Check which radio button is checked to determine which colour
             if (document.getElementById("red-radio").checked)
-                e.target.style.backgroundColor = "red";
-            
+                e.target.style.backgroundColor = "hsl(0,100%,50%)";
+            else if (document.getElementById("random-radio").checked)
+                e.target.style.backgroundColor = randomColour();
+            else if (document.getElementById("darken-radio")) {
+                          
+            }
         });
+
+        // cell.addEventListener('click', function(e) {
+        //     let currentRGB = e.target.style.backgroundColor;      
+        //     console.log(currentRGB);
+        // });
+
         // cell.addEventListener('mouseout', function(e) {
         //     e.target.style.backgroundColor = "aqua";
         // });
     });
-
 }
 
 makeSquareGrid(12);
@@ -64,16 +74,27 @@ function newGrid() {
         makeSquareGrid(size);
     }
     else {
-        alert("Please enter an integer between 1 and 64");
+        alert("Please enter an integer between 1 and 64 inclusive");
     }
 }
 
 function resetColours() {
-
+    var cells = document.querySelectorAll(".grid-cell");
+    cells.forEach()
 }
 
 function randomInt(lower, upper) {
+    //Inclusive of lower and upper
     return Math.floor(Math.random() * (upper - lower + 1)) + lower;
+}
+
+function randomColour() {
+    return "hsl(" + randomInt(0,360) + "," + randomInt(0,100) + "%," + randomInt(0,100) + "%)";
+    //Will return a string e.g. "rgb(10,222,33)"
+}
+
+function regexExtraction(str, start, end) {
+
 }
 
 function testFunction() {
