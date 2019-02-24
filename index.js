@@ -44,7 +44,7 @@ function addChangeColourEvent() {
             else if (document.getElementById("random-radio").checked)
                 e.target.style.backgroundColor = randomColour();
             else if (document.getElementById("darken-radio").checked) {
-                          
+                //Extract the current colour, convert the rgb string numbers to integers, then reduce the integers and form a new rgb. christ          
             }
         });
 
