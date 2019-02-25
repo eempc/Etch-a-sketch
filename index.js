@@ -9,8 +9,8 @@ function makeSquareGrid(x) {
     container.style.gridTemplateRows = "repeat(" + x + ", 1fr)";
 
     // Some nice gaps to separate the boxes (aesthetic, unnecessary)
-    container.style.gridColumnGap = "2px";
-    container.style.gridRowGap = "2px";
+    container.style.gridColumnGap = "0px";
+    container.style.gridRowGap = "0px";
     
     // Retrieve the container width in pixels
      let containerWidth = container.offsetWidth;
@@ -19,11 +19,11 @@ function makeSquareGrid(x) {
         // Create cell
         var newDiv = document.createElement("div");
         newDiv.classList.add("grid-cell");
-        newDiv.appendChild(document.createTextNode(i));
+        //newDiv.appendChild(document.createTextNode(i));
                
         // Aesthetic style section, nothing important here
         newDiv.style.height = containerWidth / x + "px"; // Match the height to the width
-        newDiv.style.border = "1px solid red";
+        newDiv.style.border = "1px dotted black";
         newDiv.style.textAlign = "center";
         newDiv.style.lineHeight = containerWidth / x + "px"; // Required for verticalAlign to work
         newDiv.style.verticalAlign = "middle";
@@ -39,13 +39,10 @@ function addChangeColourEvent() {
     cells.forEach((cell) => {
         cell.addEventListener('mouseover', function(e) {
             // Check which radio button is checked to determine which colour
-            if (document.getElementById("red-radio").checked)
-                e.target.style.backgroundColor = "rgb(100%,0%,0%)";
-            else if (document.getElementById("random-radio").checked)
+            if (document.getElementById("random-radio").checked)
                 e.target.style.backgroundColor = randomColour();
-            else if (document.getElementById("darken-radio").checked) {
-                //Extract the current colour, convert the rgb string numbers to integers, then reduce the integers and form a new rgb. christ          
-            }
+            else
+                e.target.style.backgroundColor = "rgb(000%,000%,000%)";
         });
 
         cell.addEventListener('click', function(e) {
@@ -59,7 +56,7 @@ function addChangeColourEvent() {
     });
 }
 
-makeSquareGrid(12);
+makeSquareGrid(64);
 addChangeColourEvent();
 
 function deleteGrid() {    
@@ -81,7 +78,7 @@ function newGrid() {
 function resetColours() {
     var cells = document.querySelectorAll(".grid-cell");
     cells.forEach((cell) => {
-        cell.style.backgroundColor = "white";
+        cell.style.backgroundColor = "rgb(130,130,130)";
     });
 }
 
