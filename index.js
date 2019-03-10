@@ -11,7 +11,7 @@ function makeSquareGrid(x) {
     // Some nice gaps to separate the boxes (aesthetic, unnecessary)
     container.style.gridColumnGap = "0px";
     container.style.gridRowGap = "0px";
-    
+
     // Retrieve the container width in pixels
      let containerWidth = container.offsetWidth;
 
@@ -20,9 +20,9 @@ function makeSquareGrid(x) {
         var newDiv = document.createElement("div");
         newDiv.classList.add("grid-cell");
         //newDiv.appendChild(document.createTextNode(i));
-               
+
         // Aesthetic style section, nothing important here
-        newDiv.style.height = containerWidth / x + "px"; // Match the height to the width
+        newDiv.style.height = ((containerWidth / x) * 0.6) + "px"; // Make height % of the width
         newDiv.style.border = "1px dotted black";
         newDiv.style.textAlign = "center";
         newDiv.style.lineHeight = containerWidth / x + "px"; // Required for verticalAlign to work
@@ -30,8 +30,8 @@ function makeSquareGrid(x) {
 
         // Add to the container
         container.appendChild(newDiv);
-        
     }
+    addChangeColourEvent();
 }
 
 function addChangeColourEvent() {
@@ -46,7 +46,7 @@ function addChangeColourEvent() {
         });
 
         cell.addEventListener('click', function(e) {
-            let currentColour = e.target.style.backgroundColor;      
+            let currentColour = e.target.style.backgroundColor;
             console.log(currentColour);
         });
 
@@ -57,16 +57,15 @@ function addChangeColourEvent() {
 }
 
 makeSquareGrid(64);
-addChangeColourEvent();
 
-function deleteGrid() {    
-    while (container.firstChild) {
-        container.removeChild(container.firstChild);
+function deleteGrid() {
+    while (container.lastChild) {
+        container.removeChild(container.lastChild);
     }
 }
 
 function newGrid() {
-    var size = prompt("Choose an integer");
+    var size = prompt("Choose an integer from 1 to 64");
     if (Number.isInteger(parseInt(size)) && size > 0 && size <= 64) {
         makeSquareGrid(size);
     }

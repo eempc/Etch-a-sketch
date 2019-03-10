@@ -10,22 +10,20 @@
   </head>
   <body>
     <div class="frame">
-      
       <div class="frame-gap"><h1>Etch-a-Sketch</h1>  </div>
-      <div id="container"></div>
-      <div class="controls">
+      <div id="container"><!--The drawing panel is created by the script--></div>
+      <div class="controls-buttons">
         <button onclick="newGrid()">New grid</button>
+        <div class="controls-colour">
+          <span>Colour choice</span><br />
+          <input type="radio" id="red-radio" name="colour-radios" />
+          <label for="red-radio">Black</label>
+          <input type="radio" id="random-radio" name="colour-radios" />
+          <label for="random-radio">Random</label>
+        </div>
         <button onclick="resetColours()">Reset grid</button>
-        <button onclick="testFunction()">Test button</button>
       </div>
-      <div class="controls">
-        <span>Colour choice</span><br />
-        <input type="radio" id="red-radio" name="colour-radios" />
-        <label for="red-radio">Black</label>
-        <input type="radio" id="random-radio" name="colour-radios" />
-        <label for="random-radio">Random</label>
 
-      </div>
       <div class="frame-gap"></div>
     </div>
 
